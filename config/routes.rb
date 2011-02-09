@@ -1,5 +1,3 @@
 ActionController::Routing::Routes.draw do |map|
-  # map.namespace :admin, :member => { :remove => :get } do |admin|
-  #   admin.resources :group_twitter
-  # end
+  map.connect 'admin/tweets', :controller => 'admin/tweets'
 end
