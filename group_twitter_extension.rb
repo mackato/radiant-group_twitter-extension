@@ -16,6 +16,6 @@ class GroupTwitterExtension < Radiant::Extension
   # See your config/routes.rb file in this extension to define custom routes
   
   def activate
-    admin.tabs.add t("Tweets"), "/admin/tweets", :after => "Pages", :visibility => [:all]
+    admin.tabs.add "Tweets", "/admin/tweets", :after => "Pages", :visibility => [:all]
   end
 end

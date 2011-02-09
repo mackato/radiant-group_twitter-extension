@@ -1,2 +1,6 @@
-<h1>Admin::Tweets#index</h1>
-<p>Find me in app/views/admin/tweets/index.html.erb</p>
+<% form_for @tweet, :url => admin_tweets_path do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :body, "Body" %>
+  <%= f.text_field :body %>
+  <input type="submit">
+<% end %>
