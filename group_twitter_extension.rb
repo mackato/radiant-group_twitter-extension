@@ -5,7 +5,7 @@ class GroupTwitterExtension < Radiant::Extension
   version "1.0"
   description "Describe of Group Twitter"
   url "https://github.com/airs/radiant-group_twitter-extension"
-  
+
   # extension_config do |config|
   #   config.gem 'some-awesome-gem
   #   config.after_initialize do
@@ -14,8 +14,9 @@ class GroupTwitterExtension < Radiant::Extension
   # end
 
   # See your config/routes.rb file in this extension to define custom routes
-  
+
   def activate
-    admin.tabs.add "Tweets", "/admin/tweets", :after => "Pages", :visibility => [:all]
+      admin.tabs.add "Tweets", "/admin/tweets", :after => "Pages", :visibility => [:all]
+      admin.tabs.add "Twitter", "/admin/twitters", :after => "Extensions", :visibility => [:all]
   end
 end
