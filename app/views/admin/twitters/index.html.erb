@@ -1,0 +1,10 @@
+User registration
+<% if @user.blank? %>
+  <div>まだ登録されていません！</div>
+  <%= link_to "認証",{:action => "oauth"} %>
+<% else %>
+  <%= @user.screen_name %>
+<% end %>
+
+
+
