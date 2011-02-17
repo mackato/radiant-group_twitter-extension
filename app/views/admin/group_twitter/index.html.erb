@@ -1,1 +1,6 @@
-<%= link_to 'Authorize', admin_group_twitter_path(:action => :auth_by_twitter) %>
+<% if @account.blank? %>
+  <%= link_to 'Authorize', admin_group_twitter_path(:action => :auth_by_twitter) %>
+<% else %>
+  <%= @account.screen_name %>
+  <%= link_to 'Delete', admin_group_twitter_path(:action => :delete_twitter_account) %>
+<% end %>
