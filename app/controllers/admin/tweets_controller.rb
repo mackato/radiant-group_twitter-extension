@@ -13,7 +13,5 @@ class Admin::TweetsController < ApplicationController
     else
       render :action => "index"
     end
-
-
   end
 end

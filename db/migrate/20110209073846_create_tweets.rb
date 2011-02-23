@@ -1,4 +1,4 @@
-class CreateGroupTwitters < ActiveRecord::Migration
+class CreateTweets < ActiveRecord::Migration
   def self.up
     create_table :tweets do |t|
       t.integer :user_id

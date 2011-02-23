@@ -6,6 +6,7 @@ class CreateGroupTwitterAccounts < ActiveRecord::Migration
       t.string :name
       t.string :profile_image_url
       t.string :access_token
+      t.string :access_token_secret
 
       t.timestamps
     end

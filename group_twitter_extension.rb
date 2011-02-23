@@ -19,7 +19,7 @@ class GroupTwitterExtension < Radiant::Extension
     end
     
     tab 'Settings' do
-      add_item "Group Twitter", "/admin/group_twitter", :after => "Extensions", :visibility => [:admin]
+      add_item "Group Twitter", "/admin/group_twitter", :after => "Users", :visibility => [:admin]
     end
   end
 end
