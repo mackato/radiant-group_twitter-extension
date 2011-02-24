@@ -1,6 +1,26 @@
-<% form_for @tweet, :url => admin_tweets_path do |f| %>
+<% form_for @tweet, :url => admin_tweets_path(:controller => "admin/tweets", :action => "save") do |f| %>
   <%= f.error_messages %>
   <%= f.label :body, "Body" %>
-  <%= f.text_field :body %>
-  <input type="submit">
+  <%= select_tag "group_twitter_account_id", @group_twitter_accounts.map {|e| "<option value='#{e.id}'>#{e.screen_name}</option>"}.join %>
+  <%= f.select :status, [["show",1],["hidden",0]] %>
+  <div>
+    <%= f.text_area :body, :size => "40×2" %>
+  </div>
+  <%= f.submit t("post") %>
 <% end %>
+
+<% if @tweets.size == 0 %>
+  <%= t("There are no tweets yet.") %>
+<% else %>
+  <% @tweets.each do |tweet| %>
+    <div>
+      <%= image_tag tweet.group_twitter_account.profile_image_url %>
+      <%= tweet.group_twitter_account.screen_name %>
+      <%= tweet.body%>
+      <%= tweet.status %>
+      <%= tweet.user.name %>
+    </div>
+  <% end %>
+<% end %>
+
+

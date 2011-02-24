@@ -64,10 +64,12 @@ class Admin::GroupTwitterController < ApplicationController
     redirect_to admin_group_twitter_url
   end
 
-  def delete_twitter_account
-    group_twitter_account = GroupTwitterAccount.find(:first)
+  def delete
+    group_twitter_account = GroupTwitterAccount.find(params[:id])
     if group_twitter_account.delete
-      flash[:notice] = "Twitter Account registration deleted."
+      flash[:notice] = t("Twitter Account registration deleted.")
+    else
+      flash[:error] = t("Error")
     end
     redirect_to admin_group_twitter_path
   end

@@ -19,7 +19,7 @@
         </td> 
         <td class='roles'><%= account.user_id %></td> 
         <td class='remove'>
-          <%= link_to t("remove"), admin_group_twitter_path(:action => :delete),
+          <%= link_to t("remove"), admin_group_twitter_path(:action => :delete,:id => account.id),
                       :confirm => t("group_twitter.group_twitter_account.remove_warning"), :method => "delete" %>
         </td> 
       </tr>
