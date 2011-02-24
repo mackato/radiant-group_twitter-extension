@@ -8,7 +8,7 @@ class TwitterClient
     @@consumer ||= OAuth::Consumer.new(
       Radiant::Config['CONSUMER_KEY'],
       Radiant::Config['CONSUMER_SECRET'],
-      :site => "http://twitter.com"
+      :site => 'https://api.twitter.com'
     )
   end
   

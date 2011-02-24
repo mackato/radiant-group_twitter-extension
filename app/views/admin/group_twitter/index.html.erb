@@ -12,14 +12,15 @@
       <tr class='node level_1'> 
         <td class='user'>
           <%= link_to image_tag(account.profile_image_url || "/images/admin/avatar_32x32.png",
-                                :width => 32, :height => 32, :class => "avatar avatar_32x32"),
+                                :width => 48, :height => 48, :class => "avatar"),
                                 "http://twitter.com/#{account.screen_name}" %>
           <%= link_to account.name || "", "http://twitter.com/#{account.screen_name}" %>
           <span class='login'><%=h account.screen_name %></span>
         </td> 
         <td class='roles'><%= account.user_id %></td> 
         <td class='remove'>
-          <%= link_to t("remove"), admin_group_twitter_path(:action => :delete) %>
+          <%= link_to t("remove"), admin_group_twitter_path(:action => :delete),
+                      :confirm => t("group_twitter.group_twitter_account.remove_warning"), :method => "delete" %>
         </td> 
       </tr>
     <% end %>
@@ -28,7 +29,7 @@
 </div> 
 <div id='actions'> 
   <ul> 
-    <li><%= link_to image_tag("/images/admin/plus.png") + " " + t('group_twitter.add_twitter_account'),
+    <li><%= link_to image_tag("/images/admin/plus.png") + " " + t('group_twitter.update_shared_twitter_account'),
                     admin_group_twitter_path(:action => :auth_by_twitter) %></li> 
   </ul> 
 </div> 

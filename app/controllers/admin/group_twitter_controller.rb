@@ -1,3 +1,5 @@
+require "json"
+
 class Admin::GroupTwitterController < ApplicationController
   attr_accessor :twitter_client
 
@@ -31,10 +33,17 @@ class Admin::GroupTwitterController < ApplicationController
       params[:oauth_verifier]
     )
     
+    session.delete(:request_token)
+    session.delete(:request_token_secret)
+    
     if access_token
       access_token_params = access_token.params
+      res = access_token.get("/users/show.json?user_id=#{access_token_params[:user_id]}")
+      obj = JSON.parse(res.body)
       params = {
         :user_id => access_token_params[:user_id],
+        :name => obj["name"],
+        :profile_image_url => obj["profile_image_url"],
         :screen_name => access_token_params[:screen_name],
         :access_token => access_token.token,
         :access_token_secret => access_token.secret
@@ -43,7 +52,7 @@ class Admin::GroupTwitterController < ApplicationController
       if @group_twitter_account
         @group_twitter_account.update_attributes(params)
       else
-        @group_twitter_account = GroupTwitterAccount.create(params)
+        @group_twitter_account = GroupTwitterAccount.create!(params)
       end
     end
     

@@ -10,6 +10,10 @@ class GroupTwitterExtension < Radiant::Extension
   # See your config/routes.rb file in this extension to define custom routes
   include GroupTwitterEnvironment
 
+  extension_config do |config|
+    config.gem 'json'
+  end
+
   def activate
     Radiant::Config['CONSUMER_KEY'] = CONSUMER_KEY
     Radiant::Config['CONSUMER_SECRET'] = CONSUMER_SECRET
