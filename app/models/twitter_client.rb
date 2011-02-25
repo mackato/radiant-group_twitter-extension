@@ -25,4 +25,6 @@ class TwitterClient
     @request_token.get_access_token({},
       :oauth_token => oauth_token, :oauth_verifier => oauth_verifier)
   end
+
+
 end
