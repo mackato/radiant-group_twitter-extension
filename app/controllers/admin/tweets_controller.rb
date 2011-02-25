@@ -1,5 +1,3 @@
-require "uri"
-
 class Admin::TweetsController < ApplicationController
   def index
     @group_twitter_accounts = GroupTwitterAccount.find(:all)
